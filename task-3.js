@@ -9,15 +9,15 @@ const randomIntegerFromInterval = (min, max) => {
         const canProcess = Math.random() > 0.3;
         
         setTimeout(() => {
-          if (canProcess) {resolve({ transaction, delay})};
+          if (canProcess) resolve([transaction.id ,delay]);
           reject(transaction.id);
     }, delay)});
     
   };
   
 
-  const logSuccess = ({id, time}) => {
-    console.log(`Transaction ${id} processed in ${time}ms`);
+const logSuccess = (data) => {
+     console.log(`Transaction ${data[0]} processed in ${data[1]}ms`);
   };
   
   const logError = id => {
